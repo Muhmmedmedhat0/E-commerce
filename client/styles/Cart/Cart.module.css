@@ -1,0 +1,113 @@
+.wrapper {
+  padding: 20px;
+}
+.title {
+  font-weight: 300;
+  font-size: 2em;
+  text-align: center;
+}
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 20px;
+}
+.topButton {
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* .topTexts {
+} */
+.topText {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.info {
+  flex: 3;
+}
+.product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productDetails {
+  flex: 2;
+  display: flex;
+}
+.productImage {
+  width: 200px;
+}
+.details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ProductColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.pricetDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.productAmountContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.icon {
+  cursor: pointer;
+}
+.amount {
+  font-size: 25px;
+  margin: 5px 10px;
+}
+.productPrice {
+  font-size: 30px;
+  font-weight: 100;
+}
+.hr {
+  background-color: #eee;
+  border: none;
+  height: 2px;
+  width: 95%;
+}
+.summery {
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 55vh;
+}
+.summeryTitle {
+  font-weight: 400;
+}
+.summeryItem {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.summeryTotal {
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.checkNow {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}

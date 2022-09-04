@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+}
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.description {
+  margin: 20px 0;
+}
+.socialContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  cursor: pointer;
+}
+.center {
+  flex: 1;
+  padding: 20px;
+}
+.title {
+  margin-bottom: 30px;
+}
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.listItem {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.right {
+  flex: 1;
+  padding: 20px;
+}
+.contactItem {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.payment {
+  width: 50%;
+}

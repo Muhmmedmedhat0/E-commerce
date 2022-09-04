@@ -1,0 +1,25 @@
+.login {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+button {
+  padding: 10px;
+  width: 100px;
+}
+button:disabled {
+  background-color: white;
+  color: teal;
+  cursor: not-allowed;
+}
+.error {
+  color: red;
+}
