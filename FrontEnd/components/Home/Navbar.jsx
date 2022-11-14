@@ -1,10 +1,10 @@
-import React from 'react';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FiShoppingCart } from 'react-icons/fi';
-import style from '../../styles/Home/Navbar.module.css';
-import { useSelector } from 'react-redux';
+import React from "react";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FiShoppingCart } from "react-icons/fi";
+import style from "../../styles/Home/Navbar.module.css";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const { cardQuantity } = useSelector((state) => state.cart);
@@ -30,7 +30,11 @@ function Navbar() {
         </div>
         <div className={style.right}>
           <div className={style.right_menuItem}>
-            <Link href="/register">Register</Link>
+            {userInfo.userName ? (
+              userInfo.userName
+            ) : (
+              <Link href="/register">Register</Link>
+            )}
           </div>
           <div className={style.right_menuItem}>
             {userInfo.userName ? (
@@ -41,7 +45,7 @@ function Navbar() {
           </div>
           <div className={style.right_menuItem}>
             <Link href="/cart">
-              <FiShoppingCart fontSize={'20px'} />
+              <FiShoppingCart fontSize={"20px"} />
             </Link>
             <span className={style.menuItem_count}>{cardQuantity}</span>
           </div>
