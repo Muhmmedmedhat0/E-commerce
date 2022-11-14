@@ -10,7 +10,6 @@ function Register() {
         <form action="" className={style.form}>
           <input type="text" placeholder="name" className={style.input} />
           <input type="text" placeholder="last name" className={style.input} />
-          <input type="text" placeholder="username" className={style.input} />
           <input type="email" placeholder="email" className={style.input} />
           <input
             type="password"

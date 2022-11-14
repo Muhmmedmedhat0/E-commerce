@@ -64,7 +64,7 @@ function Footer() {
         </div>
         <div className={style.contactItem}>
           <FontAwesomeIcon icon={faVoicemail} />
-          &nbsp;&nbsp;muhmmedmedhat0@gmail.com
+          &nbsp;&nbsp;@admin.com
         </div>
         <img
           className={style.payment}

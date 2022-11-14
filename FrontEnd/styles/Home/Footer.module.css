@@ -10,6 +10,7 @@
 
 .description {
   margin: 20px 0;
+  font-size: clamp(5px, 14px, 20px);
 }
 .socialContainer {
   display: flex;
@@ -38,6 +39,7 @@
 .listItem {
   width: 50%;
   margin-bottom: 10px;
+  font-size: clamp(5px, 14px, 20px);
 }
 .right {
   flex: 1;
@@ -47,6 +49,7 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  font-size: clamp(5px, 14px, 20px);
 }
 .payment {
   width: 50%;
