@@ -1,13 +1,13 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const logIn = createAsyncThunk('user/logIn', async (info, thunkAPI) => {
+export const logIn = createAsyncThunk("user/logIn", async (info, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
 
   try {
-    const response = await fetch('http://localhost:8080/api/auth/login', {
-      method: 'POST',
+    const response = await fetch("http://localhost:8080/api/auth/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json; charset=utf-8',
+        "Content-Type": "application/json; charset=utf-8",
       },
       body: JSON.stringify(info),
     });
@@ -19,26 +19,25 @@ export const logIn = createAsyncThunk('user/logIn', async (info, thunkAPI) => {
 });
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     userInfo: false,
     loading: null,
     error: null,
   },
-  extraReducers: {
-    // add to user
-    [logIn.pending]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(logIn.pending, (state, action) => {
       state.loading = true;
       state.error = null;
-    },
-    [logIn.fulfilled]: (state, action) => {
+    });
+    builder.addCase(logIn.fulfilled, (state, action) => {
       state.loading = false;
       state.userInfo = action.payload;
-    },
-    [logIn.rejected]: (state, action) => {
+    });
+    builder.addCase(logIn.rejected, (state, action) => {
       state.loading = false;
       state.error = true;
-    },
+    });
   },
 });
 

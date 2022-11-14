@@ -9,23 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "@reduxjs/toolkit": "^1.8.4",
-    "axios": "^0.27.2",
-    "dotenv": "^16.0.1",
-    "next": "^12.1.6",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "react-icons": "^4.6.0",
+    "next": "^13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
-    "react-redux": "^8.0.2",
-    "react-stripe-checkout": "^2.6.3",
-    "redux-persist": "^6.0.0"
+    "react-redux": "^8.0.5",
+    "@reduxjs/toolkit": "^1.9.0",
+    "redux-persist": "^6.0.0",
+    "react-stripe-checkout": "^2.6.3"
   },
   "devDependencies": {
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.3"
   }
 }
