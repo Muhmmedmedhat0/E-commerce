@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +8,7 @@ import style from "../../styles/Home/Slider.module.css";
 
 function Slider() {
   const [slideindex, setSlideIndex] = useState(1);
+  
   function handleClick(direction) {
     if (direction === "left") {
       setSlideIndex(slideindex > 0 ? slideindex - 1 : 2);
