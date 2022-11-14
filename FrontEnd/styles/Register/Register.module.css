@@ -1,24 +1,22 @@
 .container {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.2)
-    ),
-    url('https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(129, 54, 54, 0.2)),
+    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
       center;
+  height: calc(100vh - 80px);
   background-size: cover;
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
 }
 .wrapper {
-  width: 40%;
+  max-width: 50%;
   padding: 20px;
+  margin-top: 70px 20px 0px;
   background-color: white;
 }
 .title {
   font-size: 25px;
+  font-size: clamp(7px, 15px, 25px);
   font-weight: 500;
 }
 .form {
@@ -35,11 +33,12 @@
   outline: none;
 }
 .agrement {
-  font-size: 12px;
+  font-size: clamp(7px, 12px, 25px);
+
   margin: 20px 0px;
 }
 .button {
-  width: 40%;
+  min-width: 40%;
   border: none;
   padding: 15px 20px;
   background-color: teal;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Annoucement from '../../components/Home/Annoucement';
@@ -6,10 +7,11 @@ import Footer from '../../components/Home/Footer';
 import Navbar from '../../components/Home/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import style from '../../styles/Cart/Cart.module.css';
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios'
+import axios from 'axios';
+import style from '../../styles/Cart/Cart.module.css';
+
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const STRIPE_KEY =
@@ -17,6 +19,7 @@ function Cart() {
   const [stripeToken, setStripeToken] = useState(null);
   const onToken = (token) => setStripeToken(token);
   const router = useRouter();
+
   // send token to backend
   useEffect(() => {
     const makeRequest = async () => {
@@ -32,6 +35,8 @@ function Cart() {
     // call the function
     stripeToken && makeRequest();
   }, [stripeToken, cart.totalPrice, router]);
+
+  
   return (
     <section>
       <Navbar />

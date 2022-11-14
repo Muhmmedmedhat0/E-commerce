@@ -1,11 +1,10 @@
 .container {
-  width: 100vw;
   height: 100vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.2),
       rgba(255, 255, 255, 0.2)
     ),
-    url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
       center;
   background-size: cover;
   display: flex;
@@ -13,12 +12,12 @@
   justify-content: center;
 }
 .wrapper {
-  width: 25%;
+  max-width: 50%;
   padding: 20px;
   background-color: white;
 }
 .title {
-  font-size: 25px;
+  font-size: clamp(10px, 20px, 25px);
   font-weight: 500;
 }
 .form {
@@ -33,7 +32,7 @@
   outline: none;
 }
 .agrement {
-  font-size: 12px;
+  font-size: clamp(7px, 12px, 25px);
   margin: 20px 0px;
 }
 .button {
@@ -43,13 +42,14 @@
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  min-width: 40%;
 }
-.button:disabled{
+.button:disabled {
   background-color: white;
   color: teal;
   cursor: not-allowed;
 }
-.error{
+.error {
   color: red;
 }
 .link {
