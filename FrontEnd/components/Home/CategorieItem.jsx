@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Link from 'next/link';
 import style from '../../styles/Home/CategorieItem.module.css';
+
 function CategorieItem({ item }) {
   return (
     <Link href={`/products/${item.category}`}>

@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { categories } from './data';
-import style from '../../styles/Home/Categories.module.css';
 import CategorieItem from './CategorieItem';
+import style from '../../styles/Home/Categories.module.css';
 
 function Categories() {
   return (
