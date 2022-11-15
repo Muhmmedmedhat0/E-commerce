@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import Annoucement from '../../components/Home/Annoucement';
-import Footer from '../../components/Home/Footer';
-import Navbar from '../../components/Home/Navbar';
-import NewsLetter from '../../components/Home/NewsLetter';
-import ProductList from '../../components/Home/ProductList';
-import style from '../../styles/Products/ProductFilter.module.css';
+import React, { useState } from "react";
+
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import { useRouter } from "next/router";
+const Navbar = dynamic(() => import("../../components/Home/Navbar"), {
+  suspense: true,
+});
+const Annoucement = dynamic(() => import("../../components/Home/Annoucement"), {
+  suspense: true,
+});
+const NewsLetter = dynamic(() => import("../../components/Home/NewsLetter"), {
+  suspense: true,
+});
+const ProductList = dynamic(() => import("../../components/Home/ProductList"), {
+  suspense: true,
+});
+const Footer = dynamic(() => import("../../components/Home/Footer"), {
+  suspense: true,
+});
+
+import style from "../../styles/Products/ProductFilter.module.css";
 
 function Category() {
   // get the pathname from the router
@@ -25,6 +39,7 @@ function Category() {
   };
   // console.log(sort);
   return (
+   <Suspense fallback={`Loading...`}>
     <section>
       <Annoucement />
       <Navbar />
@@ -65,6 +80,7 @@ function Category() {
       <NewsLetter />
       <Footer />
     </section>
+   </Suspense>
   );
 }
 export default Category;

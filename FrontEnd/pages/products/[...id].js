@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react';
+
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { useRouter } from 'next/router';
-import Annoucement from '../../components/Home/Annoucement';
-import Footer from '../../components/Home/Footer';
-import Navbar from '../../components/Home/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import NewsLetter from '../../components/Home/NewsLetter';
-import style from '../../styles/Products/Product.module.css';
 import { fetchProduct } from '../../app/slices/products';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../app/slices/cart';
+
+const Navbar = dynamic(() => import("../../components/Home/Navbar"), {
+  suspense: true,
+});
+const Annoucement = dynamic(() => import("../../components/Home/Annoucement"), {
+  suspense: true,
+});
+
+const NewsLetter = dynamic(() => import("../../components/Home/NewsLetter"), {
+  suspense: true,
+});
+
+const Footer = dynamic(() => import("../../components/Home/Footer"), {
+  suspense: true,
+});
+import style from '../../styles/Products/Product.module.css';
 
 function Product() {
   // get the pathname from the router
@@ -35,6 +49,7 @@ function Product() {
     dispatch(fetchProduct(id));
   }, [id]);
   return (
+    <Suspense fallback={`Loading...`}>
     <section>
       <Annoucement />
       <Navbar />
@@ -76,6 +91,7 @@ function Product() {
       <NewsLetter />
       <Footer />
     </section>
+    </Suspense>
   );
 }
 
