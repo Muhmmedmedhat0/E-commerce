@@ -1,21 +1,39 @@
-import Annoucement from "../components/Home/Annoucement";
-import Categories from "../components/Home/Categories";
-import Footer from "../components/Home/Footer";
-import Navbar from "../components/Home/Navbar";
-import NewsLetter from "../components/Home/NewsLetter";
-import Products from "../components/Home/Products";
-import Slider from "../components/Home/Slider";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const Annoucement = dynamic(() => import("../components/Home/Annoucement"), {
+  suspense: true,
+});
+
+const Categories = dynamic(() => import("../components/Home/Categories"), {
+  suspense: true,
+});
+const Footer = dynamic(() => import("../components/Home/Footer"), {
+  suspense: true,
+});
+const Navbar = dynamic(() => import("../components/Home/Navbar"), {
+  suspense: true,
+});
+const NewsLetter = dynamic(() => import("../components/Home/NewsLetter"), {
+  suspense: true,
+});
+const ProductList = dynamic(() => import("../components/Home/ProductList"), {
+  suspense: true,
+});
+const Slider = dynamic(() => import("../components/Home/Slider"), {
+  suspense: true,
+});
 
 export default function Home() {
   return (
-    <>
+    <Suspense fallback={`Loading...`}>
       <Annoucement />
       <Navbar />
       <Slider />
       <Categories />
-      <Products />
+      <ProductList />
       <NewsLetter />
       <Footer />
-    </>
+    </Suspense>
   );
 }

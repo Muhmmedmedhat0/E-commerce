@@ -4,7 +4,7 @@ import Annoucement from '../../components/Home/Annoucement';
 import Footer from '../../components/Home/Footer';
 import Navbar from '../../components/Home/Navbar';
 import NewsLetter from '../../components/Home/NewsLetter';
-import Products from '../../components/Home/Products';
+import ProductList from '../../components/Home/ProductList';
 import style from '../../styles/Products/ProductFilter.module.css';
 
 function Category() {
@@ -61,7 +61,7 @@ function Category() {
           </div>
         </div>
       </div>
-      <Products category={category} filters={filters} sort={sort} />
+      <ProductList category={category} filters={filters} sort={sort} />
       <NewsLetter />
       <Footer />
     </section>

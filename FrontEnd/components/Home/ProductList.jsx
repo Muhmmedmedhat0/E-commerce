@@ -7,7 +7,7 @@ import { fetchProducts } from "../../app/slices/products";
 
 import style from "../../styles/Home/Products.module.css";
 
-function Products({ category, filters, sort }) {
+function ProductList({ category, filters, sort }) {
   const [filterProducts, setFilteredProducts] = useState([]);
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
@@ -86,4 +86,4 @@ function Products({ category, filters, sort }) {
   );
 }
 
-export default Products;
+export default ProductList;
