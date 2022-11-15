@@ -27,7 +27,7 @@ const Slider = dynamic(() => import("../components/Home/Slider"), {
 
 export default function Home() {
   return (
-    <Suspense fallback={<Loading/>}>
+    <Suspense fallback={<Loading />}>
       <Annoucement />
       <Navbar />
       <Slider />
