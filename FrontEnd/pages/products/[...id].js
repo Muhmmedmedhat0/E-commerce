@@ -53,7 +53,6 @@ function Product() {
     <section>
       <Annoucement />
       <Navbar />
-      {loading ? ('Loading ....') : (
         <div className={style.wrapper}>
           <div className={style.imgContainer}>
             <img className={style.Image} src={products?.img} alt={products?.title}/>
@@ -87,7 +86,7 @@ function Product() {
             </div>
           </div>
         </div>
-      )}
+     
       <NewsLetter />
       <Footer />
     </section>
