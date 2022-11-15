@@ -11,7 +11,7 @@ function Loading() {
           alignItems: "center",
           height: "100vh",
         }}>
-        <Image src={loader} alt="loader" />
+        <Image src={loader} alt="loader" loading="eager" priority={true} />
       </div>
     </>
   );

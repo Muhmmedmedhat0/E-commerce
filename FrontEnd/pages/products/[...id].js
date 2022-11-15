@@ -23,6 +23,8 @@ const NewsLetter = dynamic(() => import("../../components/Home/NewsLetter"), {
 const Footer = dynamic(() => import("../../components/Home/Footer"), {
   suspense: true,
 });
+import Loading from "../../components/Loading/Loading";
+
 import style from '../../styles/Products/Product.module.css';
 
 function Product() {
@@ -49,7 +51,7 @@ function Product() {
     dispatch(fetchProduct(id));
   }, [id]);
   return (
-    <Suspense fallback={`Loading...`}>
+    <Suspense fallback={<Loading/>}>
     <section>
       <Annoucement />
       <Navbar />

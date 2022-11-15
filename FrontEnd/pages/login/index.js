@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { logIn } from "../../app/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import Navbar from "../../components/Home/Navbar";
-import Login from "../../components/Login";
+const Navbar = dynamic(() => import("../../components/Home/Navbar"), {
+  suspense: true,
+});
+const Login = dynamic(() => import("../../components/Login"), {
+  suspense: true,
+});
+import Loading from "../../components/Loading/Loading";
+
 
 function SignIn() {
   const { userInfo, loading } = useSelector((state) => state.user);
@@ -24,7 +32,7 @@ function SignIn() {
   //   }
   // })();
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Navbar />
       <Login
         setEmail={setEmail}
@@ -33,7 +41,7 @@ function SignIn() {
         handleClick={handleClick}
         loading={loading}
       />
-    </>
+    </Suspense>
   );
 }
 

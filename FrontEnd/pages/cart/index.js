@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Annoucement from '../../components/Home/Annoucement';
-import Footer from '../../components/Home/Footer';
-import Navbar from '../../components/Home/Navbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux'
-import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
-import style from '../../styles/Cart/Cart.module.css';
+const Navbar = dynamic(() => import("../../components/Home/Navbar"), {
+  suspense: true,
+});
+const Annoucement = dynamic(() => import("../../components/Home/Annoucement"), {
+  suspense: true,
+});
+const Footer = dynamic(() => import("../../components/Home/Footer"), {
+  suspense: true,
+});
+import Loading from "../../components/Loading/Loading";
+
+import style from "../../styles/Cart/Cart.module.css";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const STRIPE_KEY =
-    'pk_test_51LPnilHHab9eHCh35EPRzuze8DtBPdSOBK1wTI0wU60WmRTYsSKkKn6Tn7QcCf6vO4bpmf6DP1QAInbJIIsS8j7C00TxRuv3Wf';
+    "pk_test_51LPnilHHab9eHCh35EPRzuze8DtBPdSOBK1wTI0wU60WmRTYsSKkKn6Tn7QcCf6vO4bpmf6DP1QAInbJIIsS8j7C00TxRuv3Wf";
   const [stripeToken, setStripeToken] = useState(null);
   const onToken = (token) => setStripeToken(token);
   const router = useRouter();
@@ -24,44 +34,59 @@ function Cart() {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const response = await axios.post(`http://localhost:8080/api/payment/`, {
-          amount: cart.totalPrice * 100, token: stripeToken.id,
-        });
+        const response = await axios.post(
+          `http://localhost:8080/api/payment/`,
+          {
+            amount: cart.totalPrice * 100,
+            token: stripeToken.id,
+          },
+        );
         console.log(response.data);
         // router.push('/')
         return response.data;
-      } catch (error) {console.log(error);}
+      } catch (error) {
+        console.log(error);
+      }
     };
     // call the function
     stripeToken && makeRequest();
   }, [stripeToken, cart.totalPrice, router]);
 
-  
   return (
-    <section>
+    <Suspense fallback={<Loading />}>
       <Navbar />
       <Annoucement />
       <div className={style.wrapper}>
         <h1 className={style.title}>YOUR BAG</h1>
         <div className={style.top}>
-          <button style={{ backgroundColor: 'transparent', color: 'black' }} className={style.topButton} >
+          <button
+            style={{ backgroundColor: "transparent", color: "black" }}
+            className={style.topButton}>
             <Link href="#">CONTINUE SHOPPING</Link>
           </button>
           <div className={style.topTexts}>
             <span className={style.topText}>Shopping Bag(2)</span>
             <span className={style.topText}>Your Wishlist (0)</span>
           </div>
-          <StripeCheckout name="E-Commerce"
-              image="https://img.freepik.com/free-vector/supermarket-logo-concept_23-2148467758.jpg?w=740&t=st=1659300159~exp=1659300759~hmac=75c6925c2fe434a8d477161f0cac8b5b8eeae3680a66178d4cb78f5c15ad95b4"
-              billingAddress shippingAddress
-              description={` your total price is ${cart.totalPrice}`}
-              amount={cart.totalPrice * 100}
-              token={onToken}
-              stripeKey={STRIPE_KEY}>
-              <button style={{ border: 'none', backgroundColor: 'black', color: 'white' }} className={style.topButton} >
-                CHECKOUT NOW
-              </button>
-            </StripeCheckout>
+          <StripeCheckout
+            name="E-Commerce"
+            image="https://img.freepik.com/free-vector/supermarket-logo-concept_23-2148467758.jpg?w=740&t=st=1659300159~exp=1659300759~hmac=75c6925c2fe434a8d477161f0cac8b5b8eeae3680a66178d4cb78f5c15ad95b4"
+            billingAddress
+            shippingAddress
+            description={` your total price is ${cart.totalPrice}`}
+            amount={cart.totalPrice * 100}
+            token={onToken}
+            stripeKey={STRIPE_KEY}>
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "black",
+                color: "white",
+              }}
+              className={style.topButton}>
+              CHECKOUT NOW
+            </button>
+          </StripeCheckout>
         </div>
         <div className={style.bottom}>
           <div className={style.info}>
@@ -69,12 +94,26 @@ function Cart() {
             {cart.products.map((product) => (
               <div className={style.product} key={product._id}>
                 <div className={style.productDetails}>
-                  <img className={style.productImage} src={product.img} alt={product.title} />
+                  <img
+                    className={style.productImage}
+                    src={product.img}
+                    alt={product.title}
+                  />
                   <div className={style.details}>
-                    <span className={style.productName}> <b>Product:</b> {product.title} </span>
-                    <span className={style.ProductId}> <b>ID:</b> {product._id} </span>
-                    <div className={style.ProductColor} style={{ backgroundColor: `${product.color}` }} ></div>
-                    <span className={style.ProductSize}><b>Size:</b> {product.size}</span>
+                    <span className={style.productName}>
+                      {" "}
+                      <b>Product:</b> {product.title}{" "}
+                    </span>
+                    <span className={style.ProductId}>
+                      {" "}
+                      <b>ID:</b> {product._id}{" "}
+                    </span>
+                    <div
+                      className={style.ProductColor}
+                      style={{ backgroundColor: `${product.color}` }}></div>
+                    <span className={style.ProductSize}>
+                      <b>Size:</b> {product.size}
+                    </span>
                   </div>
                 </div>
                 <div className={style.pricetDetails}>
@@ -107,12 +146,16 @@ function Cart() {
               <span className={style.summeryPrice}>$ -5.90</span>
             </div>
             <div className={style.summeryItem}>
-              <span className={(style.summeryText, style.summeryTotal)}>Total</span>
+              <span className={(style.summeryText, style.summeryTotal)}>
+                Total
+              </span>
               <span className={style.summeryPrice}>$ {cart.totalPrice}</span>
             </div>
-            <StripeCheckout name="E-Commerce"
+            <StripeCheckout
+              name="E-Commerce"
               image="https://img.freepik.com/free-vector/supermarket-logo-concept_23-2148467758.jpg?w=740&t=st=1659300159~exp=1659300759~hmac=75c6925c2fe434a8d477161f0cac8b5b8eeae3680a66178d4cb78f5c15ad95b4"
-              billingAddress shippingAddress
+              billingAddress
+              shippingAddress
               description={` your total price is ${cart.totalPrice}`}
               amount={cart.totalPrice * 100}
               token={onToken}
@@ -124,7 +167,7 @@ function Cart() {
         </div>
       </div>
       <Footer />
-    </section>
+    </Suspense>
   );
 }
 

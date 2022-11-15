@@ -18,6 +18,7 @@ const ProductList = dynamic(() => import("../../components/Home/ProductList"), {
 const Footer = dynamic(() => import("../../components/Home/Footer"), {
   suspense: true,
 });
+import Loading from "../../components/Loading/Loading";
 
 import style from "../../styles/Products/ProductFilter.module.css";
 
@@ -39,7 +40,7 @@ function Category() {
   };
   // console.log(sort);
   return (
-   <Suspense fallback={`Loading...`}>
+   <Suspense fallback={<Loading/>}>
     <section>
       <Annoucement />
       <Navbar />
