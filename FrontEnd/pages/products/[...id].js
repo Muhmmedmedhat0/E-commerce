@@ -88,7 +88,6 @@ function Product() {
             </div>
           </div>
         </div>
-     
       <NewsLetter />
       <Footer />
     </section>

@@ -13,14 +13,14 @@
   align-items: center;
 }
 .language {
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
 }
 .search_container {
   border: 0.5px solid lightgray;
   display: flex;
   align-items: center;
-  margin-left: 25px;
+  margin-left: 15px;
   padding: 5px;
 }
 .search_input {
