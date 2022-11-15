@@ -1,13 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import style from "../../styles/Register/Register.module.css";
-import Annoucement from "../../components/Home/Annoucement";
 import Navbar from "../../components/Home/Navbar";
 
 function Register() {
   return (
     <>
-      <Annoucement />
       <Navbar/>
       <section className={style.container}>
         <div className={style.wrapper}>

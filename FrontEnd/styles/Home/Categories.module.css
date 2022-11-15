@@ -1,3 +1,20 @@
+.latest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.latest h1 {
+  font-size: 70px;
+  font-size: clamp(30px, 50px, 70px);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+.latest p {
+  font-size: clamp(10px, 15px, 20px);
+  font-weight: 300;
+  text-align: center;
+}
 .container {
   display: flex;
   padding: 20px;

@@ -11,7 +11,6 @@ function Category() {
   // get the pathname from the router
   const router = useRouter();
   const { category } = router.query;
-  // console.log(category);
 
   const [filters, setFilters] = useState({});
   const handleFilter = (e) => {
@@ -30,7 +29,7 @@ function Category() {
       <Annoucement />
       <Navbar />
       <div className={style.container}>
-        <h1 className={style.title}>Dresses</h1>
+        <h1 className={style.title}>{category}</h1>
         <div className={style.filterContainer}>
           <div className={style.filter}>
             <span className={style.filterText}>Filter Products</span>

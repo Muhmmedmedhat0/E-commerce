@@ -4,7 +4,6 @@ import style from "../../styles/Login/Login.module.css";
 import { logIn } from "../../app/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import Annoucement from "../../components/Home/Annoucement";
 import Navbar from "../../components/Home/Navbar";
 
 function Login() {
@@ -25,7 +24,6 @@ function Login() {
   })();
   return (
     <>
-      <Annoucement />
       <Navbar />
       <section className={style.container}>
         <div className={style.wrapper}>
