@@ -14,32 +14,17 @@ const Login = dynamic(() => import("../../components/Login"), {
 import Loading from "../../components/Loading/Loading";
 
 function SignIn() {
-  const { userInfo, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const info = { email, password };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(logIn(info));
-  };
   const router = useRouter();
-  (function RedirectToHome() {
-    if (userInfo && userInfo !== null && !userInfo.message) {
-      router.push("/");
-    }
-  })();
+
+  const handleSubmit = (values) => {
+    dispatch(logIn(values));
+    router.push("/");
+  };
   return (
     <Suspense fallback={<Loading />}>
       <Navbar />
-      <Login
-        setEmail={setEmail}
-        setPassword={setPassword}
-        userInfo={userInfo}
-        handleClick={handleClick}
-        loading={loading}
-      />
+      <Login handleSubmit={handleSubmit} />
     </Suspense>
   );
 }

@@ -6,7 +6,6 @@ import * as yup from "yup";
 import style from "../styles/Register/Register.module.css";
 
 function Rigister(props) {
-  console.log(props)
   const validationSchema = () => {
     let schema = yup.object().shape({
       userName: yup

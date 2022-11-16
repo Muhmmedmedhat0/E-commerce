@@ -17,7 +17,7 @@ function Register() {
   const router = useRouter();
   const handleSubmit = (values) => {
     dispatch(register(values));
-    router.push("login");
+    router.push("/login");
   };
 
   return (
