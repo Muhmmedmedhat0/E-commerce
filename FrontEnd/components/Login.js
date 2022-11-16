@@ -32,7 +32,7 @@ function Login(props) {
                 By creating an account, I consent to the processing of my personal
                 data in accordance with the <b>PRIVACY POLICY</b>
               </span>
-              <button className={style.button}>LOG IN</button>
+              <button type='submit' className={style.button}>LOG IN</button>
               <Link className={style.link} href="/register">CREATE A NEW ACCOUNT</Link>
             </Form>
             )}
