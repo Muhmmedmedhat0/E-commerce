@@ -11,7 +11,7 @@ function ProductList({ category, filters, sort }) {
   const [filterProducts, setFilteredProducts] = useState([]);
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
-  console.log(products);
+  console.log(filterProducts);
   const router = useRouter();
 
   // fetch products by category
@@ -55,23 +55,30 @@ function ProductList({ category, filters, sort }) {
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
         </div>
       ) : null}
-
+      {/* 
+      if category render filterProducts
+      else render 12  products in homepage
+       */}
       <section className={style.container}>
-        {loading ? (
-          <h1 style={{ padding: "20px", margin: "0 auto" }}>Loading.... </h1>
-        ) : category ? (
-          filterProducts.map((product) => (
-            <Product
-              category={category}
-              key={product._id}
-              product={product}
-              loading={loading}
-              error={error}
-            />
-          ))
+        {category ? (
+          filterProducts.length === 0 ? (
+            <h1 style={{ textAlign: "center", color: "red" }}>
+              Thers's no items
+            </h1>
+          ) : (
+            filterProducts.map((product) => (
+              <Product
+                category={category}
+                key={product._id}
+                product={product}
+                loading={loading}
+                error={error}
+              />
+            ))
+          )
         ) : (
           Array.from(products)
-            .slice(0, 8)
+            .slice(0, 12)
             .map((product) => (
               <Product
                 key={product._id}
