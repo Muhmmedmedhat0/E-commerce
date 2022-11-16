@@ -30,15 +30,11 @@ function Navbar() {
         </div>
         <div className={style.right}>
           <div className={style.right_menuItem}>
-            {userInfo.userName ? (
-              userInfo.userName
-            ) : (
-              <Link href="/register">Register</Link>
-            )}
+            {userInfo.userName ? '' : <Link href="/register">Register</Link> }
           </div>
           <div className={style.right_menuItem}>
             {userInfo.userName ? (
-              <Link href="/login">{userInfo.userName}</Link>
+              <Link disabled={true} href="/login">{userInfo.userName}</Link>
             ) : (
               <Link href="/login">LogIn</Link>
             )}

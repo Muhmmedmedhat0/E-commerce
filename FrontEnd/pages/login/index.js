@@ -24,12 +24,12 @@ function SignIn() {
     e.preventDefault();
     dispatch(logIn(info));
   };
-  // const router = useRouter();
-  // (function RedirectToHome() {
-  //   if (userInfo && userInfo !== null && !userInfo.message) {
-  //     router.push("/");
-  //   }
-  // })();
+  const router = useRouter();
+  (function RedirectToHome() {
+    if (userInfo && userInfo !== null && !userInfo.message) {
+      router.push("/");
+    }
+  })();
   return (
     <Suspense fallback={<Loading />}>
       <Navbar />
