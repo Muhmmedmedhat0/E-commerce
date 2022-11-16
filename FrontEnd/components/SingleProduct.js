@@ -1,7 +1,7 @@
 import React from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import style from "../styles/Products/Product.module.css";
 
 function SingleProduct(props) {
@@ -10,6 +10,9 @@ function SingleProduct(props) {
       <div className={style.wrapper}>
         <div className={style.imgContainer}>
           <img
+            loading="lazy"
+            width="100"
+            height="90"
             className={style.Image}
             src={props.products?.img}
             alt={props.products?.title}
