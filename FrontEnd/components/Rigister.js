@@ -6,6 +6,7 @@ import * as yup from "yup";
 import style from "../styles/Register/Register.module.css";
 
 function Rigister(props) {
+  console.log(props)
   const validationSchema = () => {
     let schema = yup.object().shape({
       userName: yup
@@ -43,7 +44,7 @@ function Rigister(props) {
                 By creating an account, I consent to the processing of my
                 personal data in accordance with the <b>PRIVACY POLICY</b>
               </span>
-              <button type="submit" className={style.button} onClick={props.handleClick}>
+              <button type="submit" className={style.button}>
                 CREATE ACCOUNT
               </button>
               <span>Do you have an account try to</span>
