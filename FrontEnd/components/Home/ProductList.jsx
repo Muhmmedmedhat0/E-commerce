@@ -11,7 +11,6 @@ function ProductList({ category, filters, sort }) {
   const [filterProducts, setFilteredProducts] = useState([]);
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
-  console.log(filterProducts);
   const router = useRouter();
 
   // fetch products by category

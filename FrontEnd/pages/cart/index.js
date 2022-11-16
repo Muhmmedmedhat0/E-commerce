@@ -23,7 +23,8 @@ function Cart() {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const onToken = (token) => setStripeToken(token);
-  const router = useRouter();
+  const stripeKey = "pk_test_51LPnilHHab9eHCh35EPRzuze8DtBPdSOBK1wTI0wU60WmRTYsSKkKn6Tn7QcCf6vO4bpmf6DP1QAInbJIIsS8j7C00TxRuv3Wf";
+
   // send token to backend
   useEffect(() => {
     const makeRequest = async () => {
@@ -36,7 +37,6 @@ function Cart() {
           },
         );
         console.log(response.data);
-        // router.push('/')
         return response.data;
       } catch (error) {
         console.log(error);
@@ -44,13 +44,13 @@ function Cart() {
   };
     // call the function
     stripeToken && makeRequest();
-  }, [stripeToken, cart.totalPrice, router]);
+  }, [stripeToken, cart.totalPrice]);
 
   return (
     <Suspense fallback={<Loading />}>
       <Navbar />
       <Annoucement />
-      <Checkout cart={cart} onToken={onToken} />
+      <Checkout cart={cart} onToken={(token) => {onToken(token)}} stripeKey = {stripeKey} />
       <Footer />
     </Suspense>
   );

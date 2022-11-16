@@ -44,10 +44,14 @@ function Navbar() {
             )}
           </div>
           <div className={style.right_menuItem}>
-            <Link href="/cart">
-              <FiShoppingCart fontSize={"20px"} />
-            </Link>
-            <span className={style.menuItem_count}>{cardQuantity}</span>
+            {userInfo.userName ? (
+              <>
+                <Link href="/cart">
+                  <FiShoppingCart fontSize={"20px"} />
+                </Link>
+                <span className={style.menuItem_count}>{cardQuantity}</span>
+              </>
+            ) : null}
           </div>
         </div>
       </div>

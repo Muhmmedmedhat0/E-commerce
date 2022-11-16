@@ -7,8 +7,6 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import style from "../styles/Cart/Cart.module.css";
 
 function Checkout(props) {
-  const STRIPE_KEY =
-    "pk_test_51LPnilHHab9eHCh35EPRzuze8DtBPdSOBK1wTI0wU60WmRTYsSKkKn6Tn7QcCf6vO4bpmf6DP1QAInbJIIsS8j7C00TxRuv3Wf";
   return (
     <div className={style.wrapper}>
       <h1 className={style.title}>YOUR BAG</h1>
@@ -30,8 +28,9 @@ function Checkout(props) {
           description={` your total price is ${props.cart.totalPrice}`}
           amount={props.cart.totalPrice * 100}
           token={props.onToken}
-          stripeKey={STRIPE_KEY}>
-          <button style={{ border: "none", backgroundColor: "black", color: "white" }}
+          stripeKey={props.stripeKey}>
+          <button
+            style={{ border: "none", backgroundColor: "black", color: "white" }}
             className={style.topButton}>
             CHECKOUT NOW
           </button>
@@ -41,7 +40,9 @@ function Checkout(props) {
         <div className={style.info}>
           {/* start second Product */}
           {props.cart.cardQuantity === 0 ? (
-            <h1 style={{textAlign:"center", color:'red'}}>Nothing in the cart yet</h1>
+            <h1 style={{ textAlign: "center", color: "red" }}>
+              Nothing in the cart yet
+            </h1>
           ) : (
             props.cart.products.map((product) => (
               <div className={style.product} key={product._id}>
@@ -74,7 +75,9 @@ function Checkout(props) {
           <h1 className={style.summeryTitle}>ORDER SUMMARY</h1>
           <div className={style.summeryItem}>
             <span className={style.summeryText}>Subtotal</span>
-            <span className={style.summeryPrice}>$ {props.cart.totalPrice}</span>
+            <span className={style.summeryPrice}>
+              $ {props.cart.totalPrice}
+            </span>
           </div>
           <div className={style.summeryItem}>
             <span className={style.summeryText}>Estimated Shipping</span>
@@ -95,8 +98,8 @@ function Checkout(props) {
             shippingAddress
             description={` your total price is ${props.cart.totalPrice}`}
             amount={props.cart.totalPrice * 100}
-            token={props.onToken}
-            stripeKey={STRIPE_KEY}>
+            stripeKey={props.stripeKey}
+            token={props.onToken}>
             <button className={style.checkNow}>CHECKOUT NOW</button>
           </StripeCheckout>
         </div>
