@@ -1,5 +1,5 @@
 html {
-  font-family: 'Urbanist', sans-serif;
+  font-family: "Urbanist", sans-serif;
   scroll-behavior: smooth;
 }
 * {
@@ -12,11 +12,4 @@ a,
 Link {
   text-decoration: none;
   color: black;
-}
-input:invalid {
-  border: 0.5px solid red;
-}
-
-input:valid {
-  border: 0.5px solid lightgray;
 }

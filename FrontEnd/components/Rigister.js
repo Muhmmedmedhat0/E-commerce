@@ -1,72 +1,56 @@
 import React from "react";
 import Link from "next/link";
+import { Formik, Field, Form } from "formik";
+import * as yup from "yup";
+
 import style from "../styles/Register/Register.module.css";
 
 function Rigister(props) {
+  const validationSchema = () => {
+    let schema = yup.object().shape({
+      userName: yup
+        .string()
+        .min(2, "too short!")
+        .max(15, "Too Long!")
+        .required("required"),
+      email: yup.string().email("invalid email").required("required"),
+      password: yup
+        .string()
+        .min(4, "too short!")
+        .max(15, "too long!")
+        .required("required"),
+    });
+    return schema;
+  };
+
   return (
     <section className={style.container}>
       <div className={style.wrapper}>
         <h1 className={style.title}>CREATE AN ACCOUNT</h1>
-        <form className={style.form}>
-          <label htmlFor="name" />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required={true}
-            placeholder="name"
-            className={style.input}
-            onChange={(e) => props.setUserName(e.target.value)}
-          />
-          {/* <input type="text" placeholder="last name" className={style.input} /> */}
-          <label htmlFor="email" />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required={true}
-            placeholder="email"
-            className={style.input}
-            onChange={(e) => props.setEmail(e.target.value)}
-          />
-          <label htmlFor="password" />
-
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required={true}
-            placeholder="password"
-            className={style.input}
-            onChange={(e) => props.setPassword(e.target.value)}
-          />
-          <input
-            required={true}
-            type="password"
-            placeholder="confirm password"
-            className={style.input}
-          />
-          <span className={style.agrement}>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </span>
-
-          {props.userInfo.message ? (
-            <span className={style.error}>
-              {props.userInfo.message._message}
-            </span>
-          ) : null}
-          <button
-            disabled={props.loading}
-            className={style.button}
-            onClick={props.handleClick}>
-            CREATE ACCOUNT
-          </button>
-          <span>Do you have an account try to</span>
-          <Link className={style.link} href="/login">
-            Login In
-          </Link>
-        </form>
+        <Formik
+          initialValues={{ userName: "", email: "", password: "" }}
+          onSubmit={props.handleSubmit}
+          validationSchema={validationSchema}>
+          {({ errors, touched }) => (
+            <Form className={style.form}>
+              <Field type="text" name="userName" placeholder="userName" className={style.input} />
+              <div className={style.errorContainer}>{touched.userName && errors.email && <span className= {style.error}>{errors.userName}</span>}</div>
+              <Field type="email" name="email" placeholder="email" className={style.input} />
+              <div className={style.errorContainer}>{touched.email && errors.email && <span className= {style.error}>{errors.email}</span>}</div>
+              <Field type="password" name="password" placeholder="password" className={style.input} />
+              <div className={style.errorContainer}>{touched.password && errors.password && <span className= {style.error}>{errors.password}</span>}</div>
+              <span className={style.agrement}>
+                By creating an account, I consent to the processing of my
+                personal data in accordance with the <b>PRIVACY POLICY</b>
+              </span>
+              <button type="submit" className={style.button} onClick={props.handleClick}>
+                CREATE ACCOUNT
+              </button>
+              <span>Do you have an account try to</span>
+              <Link className={style.link} href="/login">Login In</Link>
+            </Form>
+          )}
+        </Formik>
       </div>
     </section>
   );
