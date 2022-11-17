@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // const currentUser = user && JSON.parse(user);
 // const TOKEN = currentUser?.token;
 
-export const logIn = createAsyncThunk('user/logIn', async (info, thunkAPI) => {
+export const logIn = createAsyncThunk('user/logIn', async (values, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
 
   try {
@@ -13,7 +13,7 @@ export const logIn = createAsyncThunk('user/logIn', async (info, thunkAPI) => {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
-      body: JSON.stringify(info),
+      body: JSON.stringify(values),
     });
     const data = await response.json();
     return data;

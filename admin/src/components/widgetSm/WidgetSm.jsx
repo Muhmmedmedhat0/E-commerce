@@ -12,33 +12,27 @@ export default function WidgetSm() {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const response = await fetch(
-          'http://localhost:8080/api/users/?new=true',
-          {
-            method: 'GET',
-            headers: { Authorization: `Bearer ${TOKEN}` },
-          }
-        );
+        const response = await fetch('http://localhost:8080/api/users/?new=true',{
+          method: 'GET',headers: { Authorization: `Bearer ${TOKEN}` }
+        });
         const data = await response.json();
         setUsers(data.users);
       } catch (error) {
-        if (error) {
-          setError(error);
-        }
+        if (error) setError(error)
       }
     };
     getUsers();
   }, [setUsers, TOKEN]);
   return (
-    <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
-      <ul className="widgetSmList">
-        {error ? 'something went wrong' : users && users.map((user) => (
-              <li className="widgetSmListItem" key={user._id}>
+    <div className="widget-sm">
+      <span className="widget-sm__title">New Join Members</span>
+      <ul className="widget-sm-list">
+        {error ? <span style={{color:"red", paddingTop: "80px"}}>faild to load</span>: users && users.map((user) => (
+              <li className="widget-sm-list__item" key={user._id}>
                 <img src={ user.img || 'https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif'}
-                  alt={user.userName} className="widgetSmImg"/>
-                <div className="widgetSmUser"> <span className="widgetSmUsername">{user.userName}</span></div>
-            <button className="widgetSmButton"><Visibility className="widgetSmIcon" />
+                  alt={user.userName} className="widget-sm__mg"/>
+                <div className="widget-sm__user"> <span className="widget-sm__username">{user.userName}</span></div>
+            <button className="widget-sm__button"><Visibility className="widget-sm__icon" />
               <Link to={`user/${user._id}`} className='link'>
                 Display
               </Link>
