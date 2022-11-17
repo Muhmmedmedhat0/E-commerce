@@ -40,13 +40,8 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={'/product/' + params.row._id}>
-              <button className="productListEdit">Edit</button>
-            </Link>
-            <DeleteOutline
-              className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
-            />
+            <Link to={'/product/' + params.row._id}> <button className="productListEdit">Edit</button></Link>
+            <DeleteOutline className="productListDelete" onClick={() => handleDelete(params.row._id)} />
           </>
         );
       },
@@ -62,7 +57,7 @@ export default function ProductList() {
           getRowId={(row) => row._id}
           disableSelectionOnClick
           columns={columns}
-          pageSize={11}
+          pageSize={10}
           checkboxSelection
         />
       </div>

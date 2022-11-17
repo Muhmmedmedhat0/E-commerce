@@ -11,32 +11,23 @@ export default function Product() {
   const _id = location.pathname.split('/')[2];
   const { products } = useSelector((state) => state.products);
   const product = products.find((product) => product._id === _id);
-  console.log(product);
+ 
+
   return (
     <div className="container">
       <Sidebar />
       <div className="product">
         <div className="productTitleContainer">
           <h1 className="productTitle">{product.title}</h1>
-          <Link to="/newproduct">
-            <button className="productAddButton">Create</button>
-          </Link>
+          <Link to="/newproduct"><button className="productAddButton">Create</button></Link>
         </div>
         <div className="productTop">
           <div className="productTopLeft">
-            <Chart
-              data={productData}
-              dataKey="Sales"
-              title="Sales Performance"
-            />
+            <Chart data={productData} dataKey="Sales" title="Sales Performance"/>
           </div>
           <div className="productTopRight">
             <div className="productInfoTop">
-              <img
-                src={product.img}
-                alt={product.title}
-                className="productInfoImg"
-              />
+              <img src={product.img} alt={product.title} className="productInfoImg"/>
               <span className="productName">{product.title}</span>
             </div>
             <div className="productInfoBottom">
@@ -72,11 +63,7 @@ export default function Product() {
             </div>
             <div className="productFormRight">
               <div className="productUpload">
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="productUploadImg"
-                />
+                <img src={product.img} alt={product.title} className="productUploadImg" />
                 <label htmlFor="file">
                   <Publish />
                 </label>
