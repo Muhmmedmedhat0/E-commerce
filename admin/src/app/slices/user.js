@@ -41,7 +41,7 @@ const userSlice = createSlice({
     },
     [logIn.rejected]: (state, action) => {
       state.loading = false;
-      state.error = true;
+      state.error = action.payload;
     },
   },
 });

@@ -20,6 +20,16 @@ button:disabled {
   color: teal;
   cursor: not-allowed;
 }
+.error-container {
+  position: relative;
+}
 .error {
+  position: absolute;
   color: red;
+  left: 100px;
+  top: -25px;
+}
+.servir-error{
+  color: red;
+
 }
