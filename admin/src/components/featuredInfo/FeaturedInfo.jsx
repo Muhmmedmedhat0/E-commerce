@@ -31,7 +31,7 @@ const currentUser = user && JSON.parse(user);
       <div className="featured-item">
         <span className="featured-item__title">Revanue</span>
         <div className="featured-money">
-          <span className="featured-money__count">${income[1]?.total || 0} </span>
+          <span className="featured-money__count">$ {income[1]?.total || 0} </span>
           <span className="featured-money__rate"> % {Math.floor(perc)}
             {perc <= 0 ? (<ArrowDownward className="featured__icon negative" />) : (<ArrowUpward className="featured__icon" />)}
           </span>

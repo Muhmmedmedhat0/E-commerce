@@ -9,9 +9,8 @@ import { fetchProducts, deleteProduct } from '../../app/slices/products';
 
 export default function ProductList() {
 
-  const { products } = useSelector((state) => state.products);
+  const { products, loading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
   };
@@ -20,9 +19,8 @@ export default function ProductList() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-
   const columns = [
-    { field: '_id', headerName: 'ID', width: 240 },
+    { field: '_id', headerName: 'ID', width: 100 },
     {
       field: 'product',
       headerName: 'Product',
@@ -57,8 +55,8 @@ export default function ProductList() {
           getRowId={(row) => row._id}
           disableSelectionOnClick
           columns={columns}
-          pageSize={10}
           checkboxSelection
+          loading={loading}
         />
       </div>
     </div>

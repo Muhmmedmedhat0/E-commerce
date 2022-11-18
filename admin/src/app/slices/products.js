@@ -65,7 +65,7 @@ export const createProduct = createAsyncThunk(
     try {
       const response =  await fetch(`http://localhost:8080/api/products/`, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${TOKEN}` },
+        headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}` },
         body: JSON.stringify(values)
       });
       const data = await response.json();
