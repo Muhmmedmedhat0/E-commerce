@@ -20,7 +20,7 @@ function App() {
         <Topbar />
         <Routes>
           <Route element={<PrivateRoutes />}>
-            <Route exact path="/" element={<Home />} />
+            <Route index path="/" element={<Home />} />
             <Route path="/users" element={<UserList />} />
             <Route path="/user/:id" element={<User />} />
             <Route path="/newUser" element={<NewUser />} />

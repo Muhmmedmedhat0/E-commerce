@@ -11,8 +11,8 @@ function Login() {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.user);
 
-  const handleSubmit = (values) => {
-    dispatch(logIn(values));
+  const handleSubmit = async (values) => {
+    await dispatch(logIn(values));
     navigate("/");
   };
 

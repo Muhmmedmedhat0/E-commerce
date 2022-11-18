@@ -42,7 +42,7 @@ export default function WidgetLg() {
           </tr>
         </thead>
         <tbody>
-          { orders.length === 0 ? <h2 style={{ color:"red" }}> No Orders Yet </h2> :
+          { orders?.length === 0 ? <tr style={{ color:"red" }}><td> No Orders Yet</td></tr> :
             orders?.slice(0, 6)?.map((order) => {
             return (
               <tr className="widget-lg-tr" key={order._id}>

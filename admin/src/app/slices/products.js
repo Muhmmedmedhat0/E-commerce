@@ -47,7 +47,7 @@ export const updateProduct = createAsyncThunk(
     try {
       await fetch(`http://localhost:8080/api/products/${_id}`, {
         method: 'PUT',
-        headers: { Authorization: `Bearer ${TOKEN}` },
+        headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}` },
         // body: JSON.stringify(values)
       });
       return _id;
