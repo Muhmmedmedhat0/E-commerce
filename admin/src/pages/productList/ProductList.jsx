@@ -32,7 +32,12 @@ export default function ProductList() {
             </tr>
           </thead>
           <tbody>
-            { loading ? 'Loading......' : products &&
+            {loading ? (
+              <tr>
+                <td>Loading......</td>
+              </tr>
+            ) : (
+              products &&
               products.map((product, i) => (
                 <tr key={product._id}>
                   <th scope="row">{i}</th>
@@ -62,18 +67,11 @@ export default function ProductList() {
                     </>
                   </td>
                 </tr>
-              ))}
+              ))
+            )}
           </tbody>
         </table>
       </div>
-      {/* <DataGrid
-          rows={products && products}
-          getRowId={(row) => row._id}
-          disableSelectionOnClick
-          columns={columns}
-          checkboxSelection
-          loading={loading}
-        /> */}
     </div>
   );
 }
