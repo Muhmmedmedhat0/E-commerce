@@ -12,7 +12,7 @@ import './user.css';
 
 export default function User() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="user">
         <div className="userTitleContainer">

@@ -28,7 +28,7 @@ export default function Home() {
     getStats();
   }, [MONTHS, TOKEN]);
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="home">
         <FeaturedInfo />

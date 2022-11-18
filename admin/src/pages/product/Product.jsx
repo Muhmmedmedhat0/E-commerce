@@ -14,7 +14,7 @@ export default function Product() {
  
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="product">
         <div className="productTitleContainer">

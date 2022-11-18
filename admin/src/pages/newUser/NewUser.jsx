@@ -3,7 +3,7 @@ import './newUser.css';
 
 export default function NewUser() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="newUser">
         <h1 className="newUserTitle">New User</h1>

@@ -100,7 +100,7 @@ export default function NewProduct() {
     );
   }
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="new-product">
         <h1 className="add-product-title">New Product</h1>

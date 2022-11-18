@@ -8,7 +8,6 @@ export default function WidgetLg() {
   const TOKEN = currentUser?.token;
 
   const [orders, setOrders] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getOrders = async () => {
@@ -20,7 +19,7 @@ export default function WidgetLg() {
         setOrders(data.orders);
       } catch (error) {
         if (error) {
-          setError(error);
+         
           console.log(error);
         }
       }

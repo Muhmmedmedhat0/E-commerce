@@ -60,7 +60,7 @@ export default function UserList() {
   ];
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Sidebar />
       <div className="userList">
         <DataGrid
