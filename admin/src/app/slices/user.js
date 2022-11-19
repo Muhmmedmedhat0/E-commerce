@@ -12,6 +12,7 @@ export const logIn = createAsyncThunk('user/logIn', async (values, thunkAPI) => 
       body: JSON.stringify(values),
     });
     const data = await response.json();
+    sessionStorage.setItem('TOKEN', data.token);
     return data;
   } catch (error) {
     rejectWithValue(error);

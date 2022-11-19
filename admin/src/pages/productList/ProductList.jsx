@@ -14,7 +14,8 @@ export default function ProductList() {
     dispatch(deleteProduct(id));
   };
 
-
+// Array.from()
+// console.log(Array.from(products))
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -40,7 +41,7 @@ export default function ProductList() {
               </tr>
             ) : (
               products &&
-              products.map((product, i) => (
+              Array.from(products).map((product, i) => (
                 <tr key={i}>
                   <th key={product._id} scope="row">{i}</th>
                   <td>{product._id}</td>

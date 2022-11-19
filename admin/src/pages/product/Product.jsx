@@ -164,7 +164,7 @@ export default function Product() {
                   onChange={(e) => setFile(e.target.files[0])} />
               </div>
               {error ? 'Something went Wrong' : null}
-              <button disabled={loading === 'true'} type="submit" className="product-button">  {loading ? <Watch /> : 'Update'} </button>
+              <button disabled={loading === true} type="submit" className="product-button">  {loading ? <Watch /> : 'Update'} </button>
             </div>
           </form>
         </div>

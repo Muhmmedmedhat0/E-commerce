@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const user = JSON.parse(sessionStorage?.getItem('persist:user'))?.userInfo;
-const currentUser = user && JSON.parse(user);
-const TOKEN = currentUser?.token;
-console.log(TOKEN);
+const TOKEN = sessionStorage.getItem('TOKEN');
+
 //fetchProducts
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -12,7 +10,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       const response = await fetch("http://localhost:8080/api/products/", {
         method: "GET",
-        headers: { Authorization: `Bearer ${TOKEN}` },
+        headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}` },
       });
       const data = await response.json();
       return data.products;
@@ -30,7 +28,7 @@ export const deleteProduct = createAsyncThunk(
     try {
       await fetch(`http://localhost:8080/api/products/${_id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${TOKEN}` },
+        headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}` },
       });
       return _id;
     } catch (error) {
@@ -47,9 +45,7 @@ export const updateProduct = createAsyncThunk(
     try {
       const response=  await fetch(`http://localhost:8080/api/products/${values.id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          Authorization: `Bearer ${TOKEN}`,
+        headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}`,
         },
         body: JSON.stringify(values)
       });
@@ -70,8 +66,7 @@ export const createProduct = createAsyncThunk(
       const response = await fetch(`http://localhost:8080/api/products/`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          Authorization: `Bearer ${TOKEN}`,
+          'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}`,
         },
         body: JSON.stringify(values),
       });
@@ -92,10 +87,9 @@ export const fetchProduct = createAsyncThunk(
         `http://localhost:8080/api/products/find/${_id}`,
         {
           method: "GET",
-          headers: { Authorization: `Bearer ${TOKEN}` },
+          headers: {'Content-Type': 'application/json; charset=utf-8', Authorization: `Bearer ${TOKEN}` },
         },
         );
-       
       const data = await response.json();
       return data;
     } catch (error) {
