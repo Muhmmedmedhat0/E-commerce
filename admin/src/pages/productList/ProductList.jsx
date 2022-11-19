@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchProducts, deleteProduct } from "../../app/slices/products";
+import { fetchProducts ,deleteProduct } from "../../app/slices/products";
 
 export default function ProductList() {
-  const { products, loading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
+  const { products, loading } = useSelector((state) => state.products);
+
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
   };
+
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -33,14 +35,14 @@ export default function ProductList() {
           </thead>
           <tbody>
             {loading ? (
-              <tr>
+              <tr >
                 <td>Loading......</td>
               </tr>
             ) : (
               products &&
               products.map((product, i) => (
-                <tr key={product._id}>
-                  <th scope="row">{i}</th>
+                <tr key={i}>
+                  <th key={product._id} scope="row">{i}</th>
                   <td>{product._id}</td>
                   <td>
                     <div className="product-list-item">

@@ -7,13 +7,13 @@
   padding: 20px;
 }
 
-.productTitleContainer {
+.product-item-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.productAddButton {
+.product-add-button {
   width: 80px;
   border: none;
   padding: 5px;
@@ -24,23 +24,23 @@
   cursor: pointer;
 }
 
-.productTop {
+.product-top {
   display: flex;
 }
 
-.productTopLeft,
+.product-top-right,
 .productTopRight {
   flex: 1;
 }
 
-.productTopRight {
+.product-top-right {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productInfoImg {
+.product-info-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -48,82 +48,82 @@
   margin-right: 20px;
 }
 
-.productInfoTop {
+.product-info-top {
   display: flex;
   align-items: center;
 }
 
-.productName {
+.product-name {
   font-weight: 600;
 }
 
-.productInfoBottom {
+.product-info-bottom {
   margin-top: 10px;
 }
 
-.productInfoItem {
+.product-info-item {
   width: 150px;
   display: flex;
   justify-content: space-between;
 }
 
-.productInfoValue {
+.product-info-value {
   font-weight: 300;
 }
 
-.productBottom {
+.product-bottom {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productForm {
+.product-form {
   display: flex;
   justify-content: space-between;
 }
 
-.productFormLeft {
+.product-form-left {
   display: flex;
   flex-direction: column;
 }
 
-.productFormLeft > label {
+.product-form-left > label {
   margin-bottom: 10px;
   color: gray;
 }
 
-.productFormLeft > input {
+.product-form-left > input {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
   border-bottom: 1px solid gray;
 }
 
-.productFormLeft >select{
+.product-form-left >select{
   margin-bottom: 10px;
 }
 
-.productUploadImg{
+
+.product-form-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.product-upload{
+  display: flex;
+  align-items: center;
+}
+
+.product-upload-img{
   width: 100px;
   height: 100px;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 20px;
 }
-
-.productFormRight{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.productUpload{
-  display: flex;
-  align-items: center;
-}
-
-.productButton{
+.product-button{
   border: none;
   padding: 5px;
   border-radius: 5px;

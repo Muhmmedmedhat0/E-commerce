@@ -44,7 +44,7 @@ exports.login = async (req, res, next) => {
         isAdmin: user.isAdmin,
       },
       process.env.JWT_KEY,
-      { expiresIn: '3h' }
+      { expiresIn: '10h' }
     );
 
     // if everything is ok send token and user
